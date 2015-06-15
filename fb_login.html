@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="user-scalable=no" />
+
+<link rel="stylesheet" type="text/css" href="style.css">
+<script>	
+	var fbLogin = function(){
+	    window.location="https://www.facebook.com/dialog/oauth?client_id=1645165719040597&redirect_uri=http://fanbot.me/m/interaccion.html&scope=email";
+	    }
+</script>
+
+<title>Iniciar sesión en Facebook</title>
+<meta charset="UTF-8">
+</head>
+
+<body>
+	<div class="fluidContainer" id="fnbtLgDiv">
+		<img id="logo" src="fanbot.png">
+	</div>
+	<div id="main">
+		<div id="main-div">
+			<button class="loginButton" onclick="fbLogin()"> Inicia sesión</button>
+		</div>
+	</div>
+</body>
+</html>

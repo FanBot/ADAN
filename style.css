@@ -1,0 +1,211 @@
+body{
+	background-color: #55ACe8;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+#feedback-page{
+	text-align:center;
+}
+/* CSS for al pages */
+
+.text{
+	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+	float:left;
+	text-align: center;
+	width: 100%;
+	color:white;
+	font-size:5em;
+	padding-top:22px;
+	padding-bottom:22px;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+	margin-top:-4px;
+	margin-bottom: 1em;
+	font-weight:700;
+	
+}
+#logo{
+	position: relative;
+	padding-bottom: 3em;
+	width: 100%;
+
+}
+
+#fnbtLgDiv{
+	margin: 3em 3em 0 3em;
+}
+
+/*  First page CSS */
+
+.goButton{
+	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+	float: right;
+	width: 30%;
+	height: 2.5 em;
+	border: #fbfbfb solid 3px;
+	cursor:pointer;
+	background-color: #3498db;
+	color:white;
+	font-size:4em;
+	padding: 5px 5px 5px 5px;
+	margin-bottom: 10px;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+    font-weight:700;
+}
+
+.goInput {
+	padding: 5px 5px 5px 5px;
+	margin-bottom: 10px;
+	width:100%;
+	height: 2.5 em;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+    font-weight:700;
+	font-size: 4em;
+	color: black;
+	text-align: center;
+}
+
+.goInput:focus{
+	background: #fff;
+	box-shadow: 0;
+	border: 3px solid #3498db;
+	outline: none;
+
+}
+/* CSS Facebook login page */
+
+.loginButton{
+	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+	float: right;
+	width: 100%;
+	height: 2.5 em;
+	border: #fbfbfb solid 3px;
+	cursor:pointer;
+	background-color: #3498db;
+	color:white;
+	font-size:4em;
+	padding: 5px 5px 5px 5px;
+	margin-bottom: 10px;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+    font-weight:700;
+}
+
+
+#logoCH{
+	position: relative;
+	padding-bottom: 3em;
+	width: 70%;
+    display: block;
+    margin:0 auto; 
+
+}
+
+#main{
+	width:100%;
+	float:left;
+
+}
+
+#main-div {
+}
+
+#loginBt {
+  float: none;
+  left: 30%;
+  position: absolute;
+}
+.focused{
+	color:#30aed6;
+	border:#30aed6 solid 3px;
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    line-height: 150%;
+    resize:vertical;
+}
+
+input:hover, textarea:hover,
+input:focus, textarea:focus {
+	background-color:white;
+}
+	
+
+
+
+#main-div{
+	width: 450px;
+	float: left;
+	left: 50%;
+	position: relative;
+ /* margin-top:30px; */
+	margin-left: -260px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+	left: 3%;
+	margin-right: 3%;
+	width: 88%;
+	margin-left: 0;
+	padding-left: 3%;
+	padding-right: 3%;
+}
+
+.fbButton{
+            max-width:600px !important; 
+            width:100% !important;
+        }
+
+.fbButton a{
+        display:block !important;
+        font-size:18px !important;
+}
+
+
+
+.fluideContainer{
+	position:relative;
+	clear: both;
+	}
+
+.fluidContainer img{
+	position:relative;
+	width:100%;
+	height:auto;
+	}
+
+.fluidContainer button{
+	position:absolute;
+	top:50%;
+	left:50%;
+	width:120px;
+	margin-left:-60px;
+	height:30px;
+	margin-top:-15px;
+}
+
+
+iframe
+{
+	position:relative;
+	transform: scale(10);
+	-ms-transform: scale(10); 
+	-webkit-transform: scale(10); 
+	-o-transform: scale(10); 
+	-moz-transform: scale(10); 
+	transform-origin: left;
+	-ms-transform-origin: left;
+	-webkit-transform-origin: left;
+	-moz-transform-origin: left;
+	-o-transform-origin: left;
+	padding: 2px;
+}

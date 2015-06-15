@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<meta name="viewport" content="user-scalable=no" />
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script>
+function gup( name ){
+	var regexS = "[\\?&]"+name+"=([^&#]*)";
+	var regex = new RegExp ( regexS );
+	var tmpURL = window.location.href;
+	var results = regex.exec( tmpURL );
+	if( results == null )
+		return"";
+	else
+		return results[1];
+}
+
+	var token = gup( 'code' );
+	console.log(token);
+	</script>
+</head>
+<body >
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId=1645168355707000";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.Event.subscribe('edge.create', function(targetUrl) {
+		window.location="final.php";
+		console.log("Like");
+    });
+    FB.Event.subscribe('edge.remove', function(targetUrl) {
+      console.log("unLike");
+
+    });
+  };
+</script>
+	<div class="fluidContainer" id="fnbtLgDiv">
+		<img id="logo" src="fanbot.png">
+	</div>
+
+	<div class="fluidContainer" id="fnbtLgDiv">
+		<spam class="text">Da like en fanbot y descubre tu proximo proyecto "Maker "de la mano de :<br></spam>
+	</div>
+
+	<div class="fluidContainer" id="fnbtLgDiv">
+		<img id="logo" src="instructables.png">
+	</div>
+
+	<div class="fluidContainer" id="fnbtLgDiv">
+		<div class="fb-like" data-href="https://www.facebook.com/fanbotme" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+	</div>
+</html>
