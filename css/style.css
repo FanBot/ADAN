@@ -1,0 +1,88 @@
+body{
+	background-color: #55ACe8;
+}
+
+/* fnbt index go button CSS*/
+.next-btn {
+   color: #fff;
+  background-color: #FBD034;
+  border-color: #FBD034;
+}
+.next-btn:hover, .next-btn:focus, .next-btn:active, .next-btn.active, .open > .next-btn.dropdown-toggle {
+  color: #fff;
+  background-color: #f7c305;
+  border-color: #edbb05;
+}
+.next-btn:active, .next-btn.active, .open > .next-btn.dropdown-toggle {
+  background-image: none;
+}
+.next-btn.disabled, .next-btn.disabled:hover, .next-btn.disabled:focus, .next-btn.disabled:active, .next-btn.disabled.active, .next-btn[disabled], .next-btn[disabled]:hover, .next-btn[disabled]:focus, .next-btn[disabled]:active, .next-btn[disabled].active, fieldset[disabled] .next-btn, fieldset[disabled] .next-btn:hover, fieldset[disabled] .next-btn:focus, fieldset[disabled] .next-btn:active, fieldset[disabled] .next-btn.active {
+  background-color: #FBD034;
+  border-color: #FBD034;
+}
+.next-btn .badge {
+  color: #FBD034;
+  background-color: #fff;
+}
+
+
+.top-row { margin-top:4em; margin-bottom:4em;}
+
+.mid-row { margin-bottom:.25em;}
+
+.inline-text {
+  font-weight: bold;
+  font-size: xx-large;
+}
+
+.square-box{
+	border-radius: 0;
+	box-shadow: 3px 4px 1px #1583C7;
+}
+
+/* fnbt facebook login button CSS*/
+.fb-btn { 
+  color: #ffffff; 
+  background-color: #3B5999; 
+  border-color: #2D4373; 
+} 
+ 
+.fb-btn:hover, 
+.fb-btn:focus, 
+.fb-btn:active, 
+.fb-btn.active, 
+.open .dropdown-toggle.fb-btn { 
+  color: #ffffff; 
+  background-color: #2D4373; 
+  border-color: #2D4373; 
+} 
+ 
+.fb-btn:active, 
+.fb-btn.active, 
+.open .dropdown-toggle.fb-btn { 
+  background-image: none; 
+} 
+ 
+.fb-btn.disabled, 
+.fb-btn[disabled], 
+fieldset[disabled] .fb-btn, 
+.fb-btn.disabled:hover, 
+.fb-btn[disabled]:hover, 
+fieldset[disabled] .fb-btn:hover, 
+.fb-btn.disabled:focus, 
+.fb-btn[disabled]:focus, 
+fieldset[disabled] .fb-btn:focus, 
+.fb-btn.disabled:active, 
+.fb-btn[disabled]:active, 
+fieldset[disabled] .fb-btn:active, 
+.fb-btn.disabled.active, 
+.fb-btn[disabled].active, 
+fieldset[disabled] .fb-btn.active { 
+  background-color: #3B5999; 
+  border-color: #2D4373; 
+} 
+ 
+.fb-btn .badge { 
+  color: #3B5999; 
+  background-color: #ffffff; 
+}
