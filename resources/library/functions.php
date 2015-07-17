@@ -87,12 +87,10 @@
 		$result = $conn->query($sql);
 		
 		if ($result->num_rows > 0) {		    
-			    echo "User already exist";	
 			} else {
 				$sql = "INSERT INTO users (fbID, fbName, firstName, lastName, email, gender) VALUES ( '". $_SESSION['fbUserId']. "','". $_SESSION['fbUserName']. "','". $_SESSION['fbUserFirstName']. "','". $_SESSION['fbUserLastName']. "','". $_SESSION['fbUserEmail'] ."','". $_SESSION['fbUserGender']."')";
 				
 				if ($conn->query($sql) === TRUE) {
-				    echo "New User saved successfully <br>";
 				} else {
 				    echo "Error: " . $sql . "<br>" . $conn->error;
 				}
@@ -119,7 +117,6 @@
 				$sql = "INSERT INTO interactions  (fanbotId, userId, clientId, fbPage) VALUES ( '". $_SESSION['id']. "','".  $_SESSION['fbUserId']. "','". $_SESSION['clientId']. "','". $_SESSION['fbPage']. "')";
 				
 				if ($conn->query($sql) === TRUE) {
-				    echo "Interaction saved successfully <br>";
 				} else {
 				    echo "Error: " . $sql . "<br>" . $conn->error;
 				}
