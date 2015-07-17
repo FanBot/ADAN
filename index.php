@@ -41,7 +41,7 @@
 				}
 				}
 				?>
-		    	<p class="text-center text-nowrap" style="color: white;">Escribe el nombre de la Fanbot frente a ti.</p>
+		    	<p class="text-center text-nowrap" style="color: white; font-size: 1.5em; ">Escribe el nombre de la Fanbot</p>
 		    </div>
 		    <div class="col-xs-1" ></div>
 		</div>
