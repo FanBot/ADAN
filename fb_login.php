@@ -2,7 +2,7 @@
 	session_start();
 	include 'resources/library/functions.php'; ?>
 <?php			
-			$loginUrl = 'https://www.facebook.com/dialog/oauth?client_id='. $config["fbApp"]["appId"] .'&redirect_uri='. $config["urls"]["baseUrl"] .'/fb_login.php&scope=public_profile, email, user_location&response_type=code';
+			$loginUrl = 'https://www.facebook.com/dialog/oauth?client_id='. $config["fbApp"]["appId"] .'&redirect_uri='. $config["urls"]["baseUrl"] .'/fb_login.php&scope=public_profile, email&response_type=code';
 			switch ($_SESSION['pageNumber']) {
 		    case 1:
 		    	$fnbtName  = htmlspecialchars($_GET["name"]);
