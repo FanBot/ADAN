@@ -27,18 +27,25 @@
 
 	<div class="clearfix visible-xs-block"></div>
 
-
-	<!-- Text columns-->
+	<!-- Like Count columns-->
 		<div class="row mid-row">
 		    <div class="col-xs-1" ></div>
 		    <div class="col-xs-10" >
-		    	<p class="text-center text-nowrap" style="color: white;">!Bravo¡, algo asombroso <br> acaba de pasar.</p>
+		    	<p class="text-center text-nowrap" style="color: white; font-size: 1.5em; ">Like: <?php fbLikeCount(); ?></p>
 		    </div>
 		    <div class="col-xs-1" ></div>
 		</div>
 
 	<div class="clearfix visible-xs-block"></div>
 
+	<!-- Text columns-->
+		<div class="row mid-row">
+		    <div class="col-xs-1" ></div>
+		    <div class="col-xs-10" >
+		    	<p class="text-center text-nowrap" style="color: white; font-size: 1.5em; ">!Bravo¡, algo asombroso <br> acaba de pasar.</p>
+		    </div>
+		    <div class="col-xs-1" ></div>
+		</div>
 	</div>
 </body>
 </html>

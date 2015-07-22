@@ -27,17 +27,20 @@
 
 	<div class="clearfix visible-xs-block"></div>
 
-
 	<!-- Text columns-->
 		<div class="row mid-row">
 		    <div class="col-xs-1" ></div>
 		    <div class="col-xs-10" >
-		    	<p class="text-center text-nowrap" style="color: white;">!Upss¡, Esta Fanbot nos dice que <br> ya te dio un premio.</p>
+		    	<p class="text-center text-nowrap" style="color: white; font-size: 1.5em; ">!Upss¡, Esta Fanbot nos<br>dice  que ya te dio un<br>premio.</p>
 		    </div>
 		    <div class="col-xs-1" ></div>
 		</div>
 
+
 	<div class="clearfix visible-xs-block"></div>
+
+
+
 
 	</div>
 </body>

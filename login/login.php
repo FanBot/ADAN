@@ -34,7 +34,7 @@
 
     <div class="container">
 
-      <form class="form-signin" action="resources/login.php" method="post">
+      <form class="form-signin" action="resources/checklogin.php" method="post">
         <h2 class="form-signin-heading">Inicia sesión</h2>
         <div class="login-wrap">
             <div class="user-login-info">
