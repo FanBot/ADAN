@@ -1,3 +1,11 @@
+<!-- Header start -->
+
+	<?php 
+		include "resources/functions.php"; 
+		isLogged();
+		
+	?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,36 +84,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td><a href="#">EVA</a></td>
-                                <td class="hidden-phone">FB-B1-SCM-0102</td>
-                                <td>30k likes al mes </td>
-                                <td><span class="label label-success label-mini">Online</span></td>
-                                <td>
-                                    <div class="progress progress-striped progress-xs">
-                                        <div style="width: 40%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar progress-bar-success">
-                                            <span class="sr-only">40% Complete (success)</span>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td><i class="fa fa-cogs"></i> Configurar</td>
-                            </tr>
-
-                            <tr>
-                                <td><a href="#">CHAP</a></td>
-                                <td class="hidden-phone">FB-B1-SCM-0102</td>
-                                <td>1k likes al mes </td>
-                                <td><span class="label label-danger label-mini">Offline</span></td>
-                                <td>
-                                    <div class="progress progress-striped progress-xs">
-                                        <div style="width: 10%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar progress-bar-success">
-                                            <span class="sr-only">40% Complete (success)</span>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td><i class="fa fa-cogs"></i> Configurar</td>
-                            </tr>
-  
+								<?php listFnbt(); ?>
                             </tbody>
                         </table>
                     </div>
@@ -151,60 +130,6 @@
 
 <!--common script init for all pages-->
 <script src="js/scripts.js"></script>
-
-    <script type="text/javascript">
-		new Morris.Area({
-		  // ID of the element in which to draw the chart.
-		  element: 'likes',
-		  // Chart data records -- each entry in this array corresponds to a point on
-		  // the chart.
-		  data: [
-		    { day: '1', value: 100 },
-		    { day: '2', value: 120 },
-		    { day: '3', value: 155 },
-		    { day: '4', value: 255 },
-		    { day: '5', value: 100 },
-		    { day: '6', value: 150 },
-		    { day: '7', value: 130 },
-		    { day: '8', value: 100 },
-		    { day: '9', value: 156 },
-		    { day: '10', value: 103 },
-		    { day: '11', value: 120 },
-		    { day: '12', value: 110 },
-		    { day: '13', value: 154 },
-		    { day: '14', value: 155 },
-		    { day: '15', value: 180 },
-		    { day: '16', value: 120 },
-		    { day: '17', value: 190 },
-		    { day: '18', value: 110 },
-		    { day: '19', value: 125 },
-		    { day: '20', value: 120 },
-		    { day: '21', value: 220 },
-		    { day: '22', value: 110 },
-		    { day: '23', value: 155 },
-		    { day: '24', value: 150 },
-		    { day: '25', value: 180 },
-		    { day: '26', value: 120 },
-		    { day: '27', value: 180 },
-		    { day: '28', value: 100 },
-		    { day: '29', value: 145 },
-		    { day: '30', value: 120 },
-		    { day: '31', value: 190 }
-
-		  ],
-		  // The name of the data record attribute that contains x-values.
-		  xkey: 'day',
-		  // A list of names of data record attributes that contain y-values.
-		  ykeys: ['value'],
-		  // Labels for the ykeys -- will be displayed when you hover over the
-		  // chart.
-		  labels: ['Likes'],
-		  smooth: true,
-		  parseTime: false,
-
-		});
-    </script>
-
 
 </body>
 </html>

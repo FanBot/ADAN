@@ -115,4 +115,63 @@
 	
 }
 
+	function isFanbotOnline($token, $id){
+		$json = file_get_contents('https://api.particle.io/v1/devices/'. $id.'?access_token='.$token);		
+		$obj = json_decode($json,true);
+		if ($obj['connected']){
+			echo 'onine';
+		} else {
+			echo 'offline';
+		}
+		
+	}
+
+	function listFnbt(){	
+			
+		$servername="localhost"; // Host name 
+		$username="Dev"; // Mysql username 
+		$password="\"TRFBMIsCWh{19"; // Mysql password 
+		$dbname="fanbot_db"; // Database name 
+
+		
+			
+		// Create connection
+		$conn = new mysqli($servername, $username, $password, $dbname);
+		// Check connection
+		if ($conn->connect_error) {
+		    die("Connection failed: " . $conn->connect_error);
+		}
+		
+		$sql = "SELECT * FROM fanbot WHERE clientId = '00'";
+		$result = $conn->query($sql);
+		
+		if ($result->num_rows > 0) {		    
+		    while($row = $result->fetch_assoc()) { ?>
+			    			
+							<tr>
+                                <td><a href="#"><?php echo $row['name']?></a></td>
+                                <td class="hidden-phone"><?php echo $row['id']?></td>
+                                <td><?php echo $row['plan']?> </td>
+                                <td><span class="label label-success label-mini"><?php isFanbotOnline($row['accesToken'], $row['deviceId']); ?></span></td>
+                                <td>
+                                    <div class="progress progress-striped progress-xs">
+                                        <div style="width: 40%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar progress-bar-success">
+                                            <span class="sr-only">40% Complete (success)</span>
+                                            
+											<?php //print_r($row); ?>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+
+<?php			    }
+			    return TRUE;	
+			} else {
+				return FALSE;
+
+			}
+		$conn->close();
+
+	}	
 ?>

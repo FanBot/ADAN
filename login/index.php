@@ -110,33 +110,8 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td><a href="#">EVA</a></td>
-                                <td class="hidden-phone">FB-B1-SCM-0102</td>
-                                <td>30k likes al mes </td>
-                                <td><span class="label label-success label-mini">Online</span></td>
-                                <td>
-                                    <div class="progress progress-striped progress-xs">
-                                        <div style="width: 40%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar progress-bar-success">
-                                            <span class="sr-only">40% Complete (success)</span>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
 
-                            <tr>
-                                <td><a href="#">CHAP</a></td>
-                                <td class="hidden-phone">FB-B1-SCM-0102</td>
-                                <td>1k likes al mes </td>
-                                <td><span class="label label-danger label-mini">Offline</span></td>
-                                <td>
-                                    <div class="progress progress-striped progress-xs">
-                                        <div style="width: 10%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar progress-bar-success">
-                                            <span class="sr-only">40% Complete (success)</span>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
+                            <?php listFnbt(); ?>
   
                             </tbody>
                         </table>

@@ -1,3 +1,10 @@
+<!-- Header start -->
+
+	<?php 
+		include "resources/functions.php"; 
+		isLogged();
+		
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -199,46 +206,17 @@
 		  // Chart data records -- each entry in this array corresponds to a point on
 		  // the chart.
 		  data: [
-		    {day: '1', a: 100},
-		    {day: '2', a: 120, b:50 },
-		    {day: '3', a: 155, b:50 },
-		    {day: '4', a: 255, b:50 },
-		    {day: '5', a: 100, b:50 },
-		    {day: '6', a: 150, b:50 },
-		    {day: '7', a: 130, b:50 },
-		    {day: '8', a: 100, b:50 },
-		    {day: '9', a: 156, b:50 },
-		    {day: '10', a: 103, b:50 },
-		    {day: '11', a: 120, b:50 },
-		    {day: '12', a: 110, b:200 },
-		    {day: '13', a: 154, b:200 },
-		    {day: '14', a: 155, b:200 },
-		    {day: '15', a: 180, b:200 },
-		    {day: '16', a: 120, b:50 },
-		    {day: '17', a: 190, b:50 },
-		    {day: '18', a: 110, b:50 },
-		    {day: '19', a: 125, b:50 },
-		    {day: '20', a: 120, b:50 },
-		    {day: '21', a: 220, b:50 },
-		    {day: '22', a: 110, b:50 },
-		    {day: '23', a: 155, b:50 },
-		    {day: '24', a: 150, b:50 },
-		    {day: '25', a: 180, b:50 },
-		    {day: '26', a: 120, b:50 },
-		    {day: '27', a: 180, b:50 },
-		    {day: '28', a: 100, b:50 },
-		    {day: '29', a: 145, b:50 },
-		    {day: '30', a: 120, b:50 },
-		    {day: '31', a: 190, b:50 }
+			  
+		  <?php getLikesGraph(date("m"),date("Y")); ?>
 
 		  ],
 		  // The name of the data record attribute that contains x-values.
-		  xkey: 'day',
+		  xkey: 'd',
 		  // A list of names of data record attributes that contain y-values.
-		  ykeys: ['a'],
+		  ykeys: ['l'],
 		  // Labels for the ykeys -- will be displayed when you hover over the
 		  // chart.
-		  labels: ['Chap'],
+		  labels: ['Likes'],
 		  smooth: true,
 		  parseTime: false,
 

@@ -17,12 +17,9 @@
 			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fae300+0,ad9c00+100 */
 			background:
 			<?php 
-					if($_SESSION['fbPage'] == 'fanbotme'){
-						echo '#55ACe8';
-					} else {
-						echo '#E41E25;'; 
 
-					}
+						echo '#55ACe8';
+
 			?>
 					}
   	</style>
@@ -94,11 +91,7 @@
 		    <div class="col-xs-8" >
 		    	<img class="img-responsive" alt="Fanbot" src="media/images/
 			<?php 
-					if($_SESSION['fbPage'] == 'fanbotme'){
 						echo 'fanbot.png'; 
-					} else {
-						echo 'logo_publicitaria.png';
-					}
 			?>">
 		    </div>
 		    <div class="col-xs-2" ></div>
@@ -112,11 +105,7 @@
 		    <div class="col-xs-8" >
 		    	<img class="img-responsive" alt="Name help image" src="media/images/
 			<?php 
-					if($_SESSION['fbPage'] == 'fanbotme'){
 						echo 'texto_fanbot_expo.png'; 
-					} else {
-						echo 'texto_publicitaria.png';
-					}
 			?>">
 		    </div>
 		    <div class="col-xs-2" ></div>
