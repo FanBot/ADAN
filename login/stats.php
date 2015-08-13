@@ -62,35 +62,12 @@
         <section class="wrapper">
         <!-- page start-->
 
-
-		<!-- Total likes chart html -->        
+		<!-- Likes for each month chart html -->        
         <div class="row">
             <div class="col-sm-12">
                 <section class="panel">
                     <header class="panel-heading">
-                        Interacciones totales este mes
-                        <span class="tools pull-right">
-                            <a href="javascript:;" class="fa fa-chevron-down"></a>
-                         </span>
-                    </header>
-                    <div class="panel-body">
-
-                        <div class="chart">
-						<div id="allLikes" style="height: 250px;"></div></div>
-
-                    </div>
-                </section>
-            </div>
-        </div>
-        
-        <!-- Total likes chart end-->
-
-		<!-- Likes for each machine chart html -->        
-        <div class="row">
-            <div class="col-sm-12">
-                <section class="panel">
-                    <header class="panel-heading">
-                        Interacciones por Maquina
+                        Interacciones este mes
                         <span class="tools pull-right">
                             <a href="javascript:;" class="fa fa-chevron-down"></a>
                          </span>
@@ -149,56 +126,6 @@
 <script src="js/scripts.js"></script>
 
     <script type="text/javascript">
-		new Morris.Line({
-		  // ID of the element in which to draw the chart.
-		  element: 'allLikes',
-		  // Chart data records -- each entry in this array corresponds to a point on
-		  // the chart.
-		  data: [
-		    {day: '1', a: 100, b:50 },
-		    {day: '2', a: 120, b:50 },
-		    {day: '3', a: 155, b:50 },
-		    {day: '4', a: 255, b:50 },
-		    {day: '5', a: 100, b:50 },
-		    {day: '6', a: 150, b:50 },
-		    {day: '7', a: 130, b:50 },
-		    {day: '8', a: 100, b:50 },
-		    {day: '9', a: 156, b:50 },
-		    {day: '10', a: 103, b:50 },
-		    {day: '11', a: 120, b:50 },
-		    {day: '12', a: 110, b:200 },
-		    {day: '13', a: 154, b:200 },
-		    {day: '14', a: 155, b:200 },
-		    {day: '15', a: 180, b:200 },
-		    {day: '16', a: 120, b:50 },
-		    {day: '17', a: 190, b:50 },
-		    {day: '18', a: 110, b:50 },
-		    {day: '19', a: 125, b:50 },
-		    {day: '20', a: 120, b:50 },
-		    {day: '21', a: 220, b:50 },
-		    {day: '22', a: 110, b:50 },
-		    {day: '23', a: 155, b:50 },
-		    {day: '24', a: 150, b:50 },
-		    {day: '25', a: 180, b:50 },
-		    {day: '26', a: 120, b:50 },
-		    {day: '27', a: 180, b:50 },
-		    {day: '28', a: 100, b:50 },
-		    {day: '29', a: 145, b:50 },
-		    {day: '30', a: 120, b:50 },
-		    {day: '31', a: 190, b:50 }
-
-		  ],
-		  // The name of the data record attribute that contains x-values.
-		  xkey: 'day',
-		  // A list of names of data record attributes that contain y-values.
-		  ykeys: ['a', 'b'],
-		  // Labels for the ykeys -- will be displayed when you hover over the
-		  // chart.
-		  labels: ['Chap', 'Eva'],
-		  smooth: true,
-		  parseTime: false,
-
-		});
 
 		new Morris.Line({
 		  // ID of the element in which to draw the chart.

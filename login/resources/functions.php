@@ -33,7 +33,12 @@
 		    die("Connection failed: " . $conn->connect_error);
 		}
 		
-		$sql = "SELECT * FROM interactions WHERE clientId = '". $_SESSION['userId']. "'";
+		if($_SESSION['userId'] == '00'){
+			$sql = "SELECT * FROM interactions";
+		}else {
+			$sql = "SELECT * FROM interactions WHERE clientId = '". $_SESSION['userId']. "'";
+		}
+
 		$result = $conn->query($sql);
 		
 		if ($result->num_rows > 1) {
@@ -69,7 +74,11 @@
 	    die("Connection failed: " . $conn->connect_error);
 	}
 
-	$sql = "SELECT * FROM interactions WHERE EXTRACT(MONTH FROM date) = '". $month. "' AND EXTRACT(YEAR FROM date) = '". $year."' AND clientId = '". $_SESSION['userId']."'"; 
+		if($_SESSION['userId'] == '00'){
+			$sql = "SELECT * FROM interactions WHERE EXTRACT(MONTH FROM date) = '". $month. "' AND EXTRACT(YEAR FROM date) = '". $year."'"; 
+			} else {
+			$sql = "SELECT * FROM interactions WHERE EXTRACT(MONTH FROM date) = '". $month. "' AND EXTRACT(YEAR FROM date) = '". $year."' AND clientId = '". $_SESSION['userId']."'"; 
+			}
 
 	$result = $conn->query($sql);
 	$daysInMonth = cal_days_in_month(CAL_GREGORIAN, date("m"), date("Y"));
@@ -118,11 +127,20 @@
 	function isFanbotOnline($token, $id){
 		$json = file_get_contents('https://api.particle.io/v1/devices/'. $id.'?access_token='.$token);		
 		$obj = json_decode($json,true);
+		
+		echo '<span class="label label-mini ';
 		if ($obj['connected']){
-			echo 'onine';
+			echo 'label-success"><span class="fa fa-circle" aria-hidden="true">';
 		} else {
-			echo 'offline';
+			echo 'label-default"><span class="fa fa-circle-o" aria-hidden="true">';
 		}
+		if ($obj['connected']){
+			echo ' Conectada';
+		} else {
+			echo ' Desconectada';
+		}
+		
+		echo '<span></span>';
 		
 	}
 
@@ -142,26 +160,27 @@
 		    die("Connection failed: " . $conn->connect_error);
 		}
 		
-		$sql = "SELECT * FROM fanbot WHERE clientId = '00'";
+		$sql = "SELECT * FROM fanbot WHERE clientId = '". $_SESSION['userId']. "'";
 		$result = $conn->query($sql);
 		
 		if ($result->num_rows > 0) {		    
 		    while($row = $result->fetch_assoc()) { ?>
 			    			
 							<tr>
-                                <td><a href="#"><?php echo $row['name']?></a></td>
+                                <td><?php echo $row['name']?></td>
                                 <td class="hidden-phone"><?php echo $row['id']?></td>
                                 <td><?php echo $row['plan']?> </td>
-                                <td><span class="label label-success label-mini"><?php isFanbotOnline($row['accesToken'], $row['deviceId']); ?></span></td>
+                                <td><span class="label label-primary label-mini"><?php isFanbotOnline($row['accesToken'], $row['deviceId']); ?></span></td>
                                 <td>
                                     <div class="progress progress-striped progress-xs">
                                         <div style="width: 40%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar progress-bar-success">
                                             <span class="sr-only">40% Complete (success)</span>
                                             
-											<?php //print_r($row); ?>
                                         </div>
                                     </div>
                                 </td>
+                                <td><a class="btn btn-default btn-xs" data-toggle="modal" data-target="#configModal">Configurar</a></td>
+
                             </tr>
 
 
@@ -174,4 +193,74 @@
 		$conn->close();
 
 	}	
+	
+		function listInteractions(){	
+			
+		$servername="localhost"; // Host name 
+		$username="Dev"; // Mysql username 
+		$password="\"TRFBMIsCWh{19"; // Mysql password 
+		$dbname="fanbot_db"; // Database name 
+
+		
+			
+		// Create connection
+		$conn = new mysqli($servername, $username, $password, $dbname);
+		// Check connection
+		if ($conn->connect_error) {
+		    die("Connection failed: " . $conn->connect_error);
+		}
+		
+		if ( $_SESSION['userId'] == 00){
+			$sql = "SELECT * FROM interactions";
+			}else{
+			$sql = "SELECT * FROM interactions WHERE clientId = '". $_SESSION['userId']. "'";
+		}
+		$result = $conn->query($sql);
+		
+		if ($result->num_rows > 0) {		    
+		    while($row = $result->fetch_assoc()) { 
+				
+				echo  "\t\t\t". '<tr class="gradeX">'. "\r\n";
+				
+				// Create a new date var from date in db
+				$date =new DateTime($row['date']);
+				// Get de number of day from the date variable
+				$formatedDate = $date->format('d/m/y');
+				
+				echo "\t\t\t". '<td>'. $formatedDate. '</td>'. "\r\n";
+				
+				
+			    $sql2 = "SELECT * FROM users WHERE fbID = '". $row['userId'] . "'";
+				$result2 = $conn->query($sql2);
+				if ($result2->num_rows > 0) {	
+						    
+				    while($row2 = $result2->fetch_assoc()) { 
+						$email = $row2['email'];
+						$gender =  $row2['gender'];
+						$fbName = $row2['fbName'];
+
+
+			    }
+			    
+			    }
+						echo "\t\t\t". '<td>'.$fbName.'</td>'. "\r\n";
+						echo "\t\t\t". '<td>'. $email.' </td>'. "\r\n";
+						echo "\t\t\t". '<td>'.$gender.'</td>'. "\r\n";
+
+			    echo "\t\t\t". '<td>'.$row['fbPage']. '</td>'. "\r\n";
+			    echo "\t\t\t". '<td>'.$row['fanbotId']. '</td>'. "\r\n";
+			    
+
+			    echo "\t\t    ".'</tr>'. "\r\n";
+			}
+			    return TRUE;	
+			} else {
+				echo "Empty query";
+				return FALSE;
+
+			}
+		$conn->close();
+
+	}	
+
 ?>

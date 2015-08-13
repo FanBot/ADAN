@@ -1,3 +1,8 @@
+	<?php 
+		include "resources/functions.php"; 
+		isLogged();
+		
+	?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,7 +73,7 @@
                                 <div class="btn-group">
                                 </div>
                                 <div class="btn-group pull-right">
-                                    <button id="editable-sample_new" class="btn btn-primary">
+                                    <button id="editable-sample_new" class="btn btn-primary" onclick="window.exportExcel()">
                                         Descargar
                                     </button>
                                 </div>
@@ -86,18 +91,11 @@
                         <th>Nombre de la Fanbot</th>
                     </tr>
                     </thead>
+
                     <tbody>
-				<?php for($i=1;$i<=30;$i++){ ?>
-                    <tr class="gradeX">
-                        <td><?php echo $i; ?>/06/2015</td>
-                        <td>Fulano de tal</td>
-                        <td>fulano@detal.com</td>
-                        <td>M</td>
-                        <td>fanbotme</td>
-                        <td>EVA</td>
-                    </tr>
-                <?php } ?>
+		    <?php listInteractions() ?>
                     </tbody>
+
                     <tfoot>
                     <tr>
                         <th>Fecha</th>
@@ -129,6 +127,33 @@
 
 </section>
 
+                    <table  class="table table-striped table-hover table-bordered" id="fullTable" style= "display: none;">
+                    <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Genero</th>
+                        <th>Pagina de Facebook</th>
+                        <th>Nombre de la Fanbot</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+		    <?php listInteractions() ?>
+                    </tbody>
+
+                    <tfoot>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Genero</th>
+                        <th>Pagina de Facebook</th>
+                        <th>Nombre de la Fanbot</th>
+                    </tr>
+                    </tfoot>
+                    </table>
 <!-- Placed js at the end of the document so the pages load faster -->
 
 <!--Core js-->
@@ -157,6 +182,16 @@
 <!--dynamic table initialization -->
 <script src="js/dynamic_table_init.js"></script>
 
+<!-- Export table JS -->
+<script src="http://alasql.org/console/alasql.min.js"></script>
+<script src="http://alasql.org/console/xlsx.core.min.js"></script>
+
+<script>
+	window.exportExcel =     function exportExcel() {
+        alasql('SELECT * INTO XLSX("usuarios.xlsx",{headers:true}) \
+                    FROM HTML("#fullTable",{headers:true})');
+    }
+</script>
 
 </body>
 </html>

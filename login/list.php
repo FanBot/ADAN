@@ -63,35 +63,8 @@
         <section class="wrapper">
         <!-- page start-->
 
+		<?php require_once("resources/listFnbt.php"); ?>
 
-        <div class="row">
-            <div class="col-sm-12">
-                <section class="panel">
-                    <div class="panel-body">
-		                <div class="gauge-canvas">
-	                        <h4 class="widget-h">Mis Fanbot</h4>
-	                    </div>
-                        <table class="table  table-hover general-table">
-                            <thead>
-                            <tr>
-                                <th> Nombre</th>
-                                <th class="hidden-phone">Numero de serie</th>
-                                <th>Plan</th>
-                                <th>Status</th>
-                                <th>Likes</th>
-                                <th></th>
-
-                            </tr>
-                            </thead>
-                            <tbody>
-								<?php listFnbt(); ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-            </div>
-        </div>
- 
         <!-- page end-->
         </section>
     </section>
@@ -104,8 +77,8 @@
 <!-- Right sidebar end-->
 
 </section>
-
 <!-- Placed js at the end of the document so the pages load faster -->
+
 
 <!--Core js-->
 <script src="js/jquery.js"></script>

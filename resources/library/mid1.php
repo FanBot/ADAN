@@ -44,8 +44,7 @@
 		    $(window).on('resize', function() {
 		        $('.modal:visible').each(reposition);
 		    });
-		});
-		
+		});		
 
     <?php
     if ($_SESSION['pageNumber'] == 3){ $_SESSION['pageNumber'] = 3;?>
@@ -72,12 +71,14 @@
 <script>
   window.fbAsyncInit = function() {
     FB.Event.subscribe('edge.create', function(targetUrl) {
+	  $("body").find("*").attr("disabled", "disabled");
+	   console.log("out");    
 	  window.location="final.php";
     });
     FB.Event.subscribe('edge.remove', function(targetUrl) {
       console.log("unLike");
-
     });
+
   };
   
 </script>

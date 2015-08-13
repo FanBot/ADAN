@@ -2,7 +2,7 @@
 
 <?php
 		require '../resources/library/functions.php';
-		fanbotAction( '51ff6b065082554927350487', '861334ffe8da107371b91e611263b3e6e295e54c');
+		fanbotAction( '290035000f47343432313031', '8f143ea31dd63ec40437558c3d352b560a2dfcd4');
 ?>
 
 <script>

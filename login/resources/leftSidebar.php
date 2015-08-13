@@ -22,15 +22,9 @@
             </li>
 
             <li>
-                <a href="config.php">
+                <a href="list.php">
                     <i class="fa fa-cogs"></i>
                     <span>Mis Fanbot</span>
-                </a>
-            </li>
-            <li>
-                <a href="pays.php">
-                    <i class="fa fa-credit-card"></i>
-                    <span>Pagos</span>
                 </a>
             </li>
 
