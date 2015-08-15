@@ -126,7 +126,9 @@
 
 	function fanbotAction($deviceId, $accesToken){
 		
-		$ch = curl_init("https://api.particle.io/v1/devices/". $deviceId.  "/?access_token=". $accesToken);
+		$ip = 'api.particle.io';
+		$ch = curl_init("https://". $ip ."/v1/devices/". $deviceId.  "/?access_token=". $accesToken);
+		curl_setopt($ch, CURLOPT_FRESH_CONNECT, 1);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		$output = curl_exec($ch);
 		curl_close($ch);
@@ -141,9 +143,10 @@
 			if($connectedSpark){
 	
 	
-				$ch = curl_init("https://api.particle.io/v1/devices/". $deviceId.  "/led?access_token=". $accesToken);
+				$ch = curl_init("https://". $ip ."/v1/devices/". $deviceId.  "/led?access_token=". $accesToken);
 				curl_setopt($ch, CURLOPT_POST, 1);
 				curl_setopt($ch, CURLOPT_POSTFIELDS, "params=D7,HIGH");
+				curl_setopt($ch, CURLOPT_FRESH_CONNECT, 1);
 				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 				$output = curl_exec($ch);
 				curl_close($ch);

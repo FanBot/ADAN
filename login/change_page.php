@@ -1,4 +1,7 @@
 <?php
+		include "resources/functions.php"; 
+		isLogged();
+		
 	$fnbtName  = htmlspecialchars($_GET["name"]);
 	$fbPage  = htmlspecialchars($_GET["fb_page"]);
 

@@ -21,6 +21,18 @@
                             <tbody>
 
 								<?php
+									if((@include 'resources/phpSpark.class.php') === false)  die("Unable to load phpSpark class");
+									if((@include 'resources/phpSpark.config.php') === false)  die("Unable to load phpSpark configuration file");
+									// Grab a new instance of our phpSpark object
+									$spark = new phpSpark();
+									// Set our access token (set in the phpConfig.config.php file)
+									$spark->setAccessToken($accessToken);
+									// List all the devices on your account
+									if($spark->listDevices() == true)
+									{
+									    $fanbotList = $spark->getResult();
+									}
+									print_r($fanbotList);
 											
 										$servername="localhost"; // Host name 
 										$username="Dev"; // Mysql username 
@@ -36,11 +48,8 @@
 										    die("Connection failed: " . $conn->connect_error);
 										}
 										
-										if ( $_SESSION['userId'] == 00){
 											$sql = "SELECT * FROM fanbot";	
-											} else {
-											$sql = "SELECT * FROM fanbot WHERE clientId = '". $_SESSION['userId']. "'";											
-											}
+
 										$result = $conn->query($sql);
 										
 										if ($result->num_rows > 0) {		    
@@ -69,7 +78,17 @@
 									                                
 								                                ?> </td>
 																	<td>
-																		<?php isFanbotOnline($row['accesToken'], $row['deviceId']); ?>
+																		
+																		<?php 
+																			$name = strtolower($row['name']);
+																			$key = array_search($name, array_column($fanbotList, "name"));
+																			if( $fanbotList[$key]["connected"]){
+																				echo ' connected ';
+																			} else {
+																				echo ' offline ';
+																			}
+																			//isFanbotOnline($row['accesToken'], $row['deviceId']); 
+																		?>
 																	</td>
 								                                <td>
 									                                <a class="btn btn-primary btn-xs" onclick="callModal('<?php echo $row['name']?>')">
@@ -106,6 +125,6 @@
  
  <!-- Modal that configures a Fanbot facebook page -->
 
-    	<?php require_once("listModal.php"); ?>
+    	<?php require_once("resources/listModal.php"); ?>
 
 <!-- End modal --> 

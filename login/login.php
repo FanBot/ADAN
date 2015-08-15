@@ -38,8 +38,8 @@
         <h2 class="form-signin-heading">Inicia sesión</h2>
         <div class="login-wrap">
             <div class="user-login-info">
-                <input type="email" class="form-control" placeholder="User ID" name="username" autofocus>
-                <input type="password" class="form-control" placeholder="Password" name="password">
+                <input type="email" class="form-control" placeholder="Correo electronico" name="username" autofocus>
+                <input type="password" class="form-control" placeholder="Contraseña" name="password">
             </div>
 
             <button class="btn btn-lg btn-login btn-block" type="submit" value="Login">Iniciar sesión</button>

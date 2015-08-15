@@ -30,8 +30,6 @@
 </script>
 </script>
 
-<strong><?php echo $_SESSION['picturenum'];?></strong>
-
 		  <div class="modal fade" id="configModal" role="dialog">
 		    <div class="modal-dialog">
 		    

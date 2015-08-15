@@ -1,5 +1,6 @@
 <?php 
-	
+	if((@include 'phpSpark.class.php') === false)  die("Unable to load phpSpark class");
+	if((@include 'phpSpark.config.php') === false)  die("Unable to load phpSpark configuration file");
 	
 	// Check if user is logged in 
 	function isLogged(){
@@ -83,6 +84,10 @@
 	$result = $conn->query($sql);
 	$daysInMonth = cal_days_in_month(CAL_GREGORIAN, date("m"), date("Y"));
 	$dayArray = array();
+	$i = 1;
+	for($i = 1; $i <= $daysInMonth; $i++){
+		$dayArray[$i] = 0;
+		}
 	if ($result->num_rows > 0) {		    
 
 		    while($row = $result->fetch_assoc()) {
@@ -92,13 +97,13 @@
 			// Get de number of day from the date variable
 			$day = $date->format('d');
 			// Create the array 
-			$i = 1;
-			$dayArray[$i] = 0;
+			$i = 1;			
 			for($i = 1; $i <= $daysInMonth; $i++){
 				 if ($day == $i){
-				 $dayArray[$i]++;
+				 	$dayArray[$i]++;
 
 		    }
+
 		}
 	}
 
@@ -125,22 +130,38 @@
 }
 
 	function isFanbotOnline($token, $id){
-		$json = file_get_contents('https://api.particle.io/v1/devices/'. $id.'?access_token='.$token);		
-		$obj = json_decode($json,true);
-		
+
+	$spark = new phpSpark();
+	
+
+	$spark->setAccessToken($token);
+	
+	if($spark->getDeviceInfo($id) == true)
+	{
+	    $fanbot = $spark->getResult();
+	}
+	else
+	{
+	    $spark->debug("Error: " . $spark->getError());
+	    $spark->debug("Error Source" . $spark->getErrorSource());
+	}
+
+		$connectedSpark = $fanbot["connected"] ;
+	
 		echo '<span class="label label-mini ';
-		if ($obj['connected']){
+		if ($connectedSpark){
 			echo 'label-success"><span class="fa fa-circle" aria-hidden="true">';
 		} else {
 			echo 'label-default"><span class="fa fa-circle-o" aria-hidden="true">';
 		}
-		if ($obj['connected']){
+		if ($connectedSpark){
 			echo ' Conectada';
 		} else {
 			echo ' Desconectada';
+
 		}
-		
-		echo '<span></span>';
+
+		echo '</span>';
 		
 	}
 
