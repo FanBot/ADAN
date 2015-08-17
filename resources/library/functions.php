@@ -38,7 +38,7 @@
 		FacebookSession::setDefaultApplication( $config["fbApp"]["appId"],$config["fbApp"]["appSecret"] );
 		
 		// Get de JSON text containing the token 
-		$codeToToken = file_get_contents('https://graph.facebook.com/v2.3/oauth/access_token?client_id='.$config["fbApp"]["appId"].'&redirect_uri=http://ec2-52-26-183-244.us-west-2.compute.amazonaws.com/fb_login.php&client_secret='.$config["fbApp"]["appSecret"].'&code='. $code);
+		$codeToToken = file_get_contents('https://graph.facebook.com/v2.3/oauth/access_token?client_id='.$config["fbApp"]["appId"].'&redirect_uri='.$config["urls"]["baseUrl"].'/fb_login.php&client_secret='.$config["fbApp"]["appSecret"].'&code='. $code);
 		$token = json_decode($codeToToken);
 
 
@@ -87,12 +87,10 @@
 		$result = $conn->query($sql);
 		
 		if ($result->num_rows > 0) {		    
-			    echo "User already exist";	
 			} else {
 				$sql = "INSERT INTO users (fbID, fbName, firstName, lastName, email, gender) VALUES ( '". $_SESSION['fbUserId']. "','". $_SESSION['fbUserName']. "','". $_SESSION['fbUserFirstName']. "','". $_SESSION['fbUserLastName']. "','". $_SESSION['fbUserEmail'] ."','". $_SESSION['fbUserGender']."')";
 				
 				if ($conn->query($sql) === TRUE) {
-				    echo "New User saved successfully <br>";
 				} else {
 				    echo "Error: " . $sql . "<br>" . $conn->error;
 				}
@@ -119,7 +117,6 @@
 				$sql = "INSERT INTO interactions  (fanbotId, userId, clientId, fbPage) VALUES ( '". $_SESSION['id']. "','".  $_SESSION['fbUserId']. "','". $_SESSION['clientId']. "','". $_SESSION['fbPage']. "')";
 				
 				if ($conn->query($sql) === TRUE) {
-				    echo "Interaction saved successfully <br>";
 				} else {
 				    echo "Error: " . $sql . "<br>" . $conn->error;
 				}
@@ -129,7 +126,9 @@
 
 	function fanbotAction($deviceId, $accesToken){
 		
-		$ch = curl_init("https://api.particle.io/v1/devices/". $deviceId.  "/?access_token=". $accesToken);
+		$ip = 'api.particle.io';
+		$ch = curl_init("https://". $ip ."/v1/devices/". $deviceId.  "/?access_token=". $accesToken);
+		curl_setopt($ch, CURLOPT_FRESH_CONNECT, 1);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		$output = curl_exec($ch);
 		curl_close($ch);
@@ -144,16 +143,16 @@
 			if($connectedSpark){
 	
 	
-				$ch = curl_init("https://api.particle.io/v1/devices/". $deviceId.  "/led?access_token=". $accesToken);
+				$ch = curl_init("https://". $ip ."/v1/devices/". $deviceId.  "/led?access_token=". $accesToken);
 				curl_setopt($ch, CURLOPT_POST, 1);
 				curl_setopt($ch, CURLOPT_POSTFIELDS, "params=D7,HIGH");
+				curl_setopt($ch, CURLOPT_FRESH_CONNECT, 1);
 				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 				$output = curl_exec($ch);
 				curl_close($ch);
 		}
 	
 	}
-	
 	
 	function findFnbt($fnbtName){	
 		
@@ -224,5 +223,12 @@
 		$conn->close();
 
 	}	
-			
+	
+	function fbLikeCount(){
+		$json = file_get_contents('https://api.facebook.com/method/links.getStats?urls=facebook.com/'. $_SESSION['fbPage']. '&format=json');		
+		$obj = json_decode($json,true);
+		$likes = $obj[0]['like_count'];
+		echo $likes;
+
+	}		
 ?>
